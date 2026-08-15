@@ -1,8 +1,15 @@
 # Debate Arena
 
-A redesigned Streamlit class dashboard for homework, POI participation, points, and feedback.
+A Streamlit dashboard for debate class homework, POI participation, class points, and teacher feedback.
 
-## Run
+## Files
+
+- `app.py`
+- `sample_students.csv`
+- `requirements.txt`
+- `README.md`
+
+## Run locally
 
 ```bash
 pip install -r requirements.txt
