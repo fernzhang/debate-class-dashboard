@@ -433,10 +433,7 @@ with tab4:
             f'<div class="feedback-card">'
             f'<div class="feedback-top"><div class="feedback-name">{escape(str(row["Student"]))}</div>'
             f'<div class="feedback-date">{escape(str(row["Date_Label"]))}</div></div>'
-            f'<div class="feedback-copy">{escape(feedback)}</div>'
-            f'<div class="feedback-meta">Homework {row["Homework_Points"]:.0f} · '
-            f'POI {row["POI_Points"]:.0f} · Class {row["Class_Points"]:.0f} · '
-            f'Bonus {row["Bonus_Points"]:.0f}</div></div>'
+            f'<div class="feedback-copy">{escape(feedback)}</div></div>'
         )
     st.markdown('<div class="feedback-grid">' + "".join(cards) + "</div>", unsafe_allow_html=True)
     st.caption("Feedback shown here is visible to anyone who can access the dashboard.")
