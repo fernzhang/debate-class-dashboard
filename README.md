@@ -4,21 +4,23 @@ A colorful Streamlit dashboard for class homework, POI participation, points, an
 
 ## GitHub files
 
-Upload these four files to the root of your existing repository:
+Upload these files to the root of your existing repository:
 
 - `app.py`
 - `sample_students.csv`
 - `requirements.txt`
 - `README.md`
 
-When the filenames already exist, upload the new versions and commit the changes.
-
 ## Updating scores later
 
-For score/feedback-only changes, replace `sample_students.csv` and commit it.
+Replace `sample_students.csv` and commit it.
 
-The app intentionally does **not** cache the default CSV, so updated GitHub data will be loaded after the Streamlit app redeploys/restarts.
+The dashboard reads the CSV directly and does not include a student-facing upload control.
 
-## CSV columns
+## Tie behavior
 
-`Date, Student, Homework_Status, Homework_Points, POI_Points, Class_Points, Bonus_Points, Feedback`
+When multiple students share the top Homework or POI score, all tied names are shown in the champion card.
+
+## Date display
+
+The CSV still stores plain dates such as `2026-08-09`. The dashboard displays them as `Week of Aug 9, 2026`.

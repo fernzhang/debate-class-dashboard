@@ -22,7 +22,6 @@ STATUS = {
     "Excused": ("Excused", "status-excused"),
 }
 
-# Do NOT cache this read. The CSV is intentionally replaceable through GitHub.
 def load_default_data():
     return pd.read_csv("sample_students.csv")
 
@@ -86,16 +85,11 @@ html, body, [class*="css"] {
   margin:0; max-width:620px; font-size:3rem; line-height:.98;
   letter-spacing:-.05em;
 }
-.hero p { margin:15px 0 0; color:#5F587E; line-height:1.55; max-width:52ch; }
+.hero p { margin:15px 0 0; color:#5F587E; line-height:1.55; max-width:54ch; }
 .hero-art { position:relative; min-height:250px; }
 .hero-art svg { position:absolute; right:20px; bottom:0; width:min(420px,100%); height:auto; }
 
-.filter-shell {
-  display:grid; grid-template-columns:1.15fr .85fr; gap:18px;
-  margin:0 0 22px;
-}
-div[data-baseweb="select"] > div,
-section[data-testid="stFileUploaderDropzone"] {
+div[data-baseweb="select"] > div {
   background:white !important;
   border:1px solid var(--line) !important;
   border-radius:12px !important;
@@ -103,35 +97,25 @@ section[data-testid="stFileUploaderDropzone"] {
 }
 
 .champ-grid {
-  display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:18px;
+  display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:24px;
 }
 .champ-card {
   border-radius:18px; padding:22px 24px; position:relative; overflow:hidden;
-  min-height:182px;
+  min-height:190px;
 }
 .champ-card.homework { background:var(--yellow-soft); border:1px solid #F0D878; }
 .champ-card.poi { background:var(--aqua-soft); border:1px solid #A8E6E1; }
 .champ-top { display:flex; justify-content:space-between; gap:16px; align-items:center; }
 .champ-label { font-size:.85rem; font-weight:750; }
 .champ-period { font-size:.76rem; color:var(--muted); }
-.champ-name { font-size:2.05rem; line-height:1; font-weight:850; letter-spacing:-.04em; margin-top:33px; }
-.champ-score { color:var(--muted); margin-top:7px; font-size:.86rem; }
+.champ-name {
+  font-size:1.85rem; line-height:1.08; font-weight:850; letter-spacing:-.04em;
+  margin-top:28px; max-width:75%;
+}
+.champ-name.multi { font-size:1.55rem; line-height:1.15; }
+.champ-score { color:var(--muted); margin-top:8px; font-size:.86rem; }
 .champ-icon { position:absolute; right:18px; bottom:14px; width:96px; height:96px; opacity:.95; }
 .champ-icon svg { width:100%; height:100%; }
-
-.stats {
-  display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:25px;
-}
-.stat {
-  min-height:108px; background:var(--paper); border:1px solid var(--line);
-  border-radius:16px; padding:17px 18px;
-}
-.stat:nth-child(1) { box-shadow:inset 0 4px 0 var(--coral); }
-.stat:nth-child(2) { box-shadow:inset 0 4px 0 var(--violet); }
-.stat:nth-child(3) { box-shadow:inset 0 4px 0 var(--aqua); }
-.stat:nth-child(4) { box-shadow:inset 0 4px 0 var(--yellow); }
-.stat-value { font-size:1.65rem; font-weight:850; letter-spacing:-.035em; }
-.stat-label { color:var(--muted); font-size:.78rem; margin-top:5px; }
 
 button[data-baseweb="tab"] {
   font-weight:700 !important; color:var(--muted) !important;
@@ -179,6 +163,7 @@ div[data-baseweb="tab-highlight"] { background:var(--violet) !important; height:
 .data-table td { padding:14px; border-bottom:1px solid var(--line); font-size:.9rem; }
 .data-table tr:last-child td { border-bottom:none; }
 .data-table td:last-child, .data-table th:last-child { text-align:right; }
+
 .pill {
   display:inline-flex; align-items:center; padding:5px 10px;
   border-radius:999px; font-size:.75rem; font-weight:700;
@@ -191,7 +176,7 @@ div[data-baseweb="tab-highlight"] { background:var(--violet) !important; height:
 .feedback-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
 .feedback-card {
   background:white; border:1px solid var(--line); border-radius:16px;
-  padding:18px 19px; position:relative; min-height:155px;
+  padding:19px 20px; position:relative; min-height:210px;
 }
 .feedback-card:nth-child(3n+1) { box-shadow:inset 4px 0 0 var(--violet); }
 .feedback-card:nth-child(3n+2) { box-shadow:inset 4px 0 0 var(--coral); }
@@ -199,8 +184,8 @@ div[data-baseweb="tab-highlight"] { background:var(--violet) !important; height:
 .feedback-top { display:flex; justify-content:space-between; gap:15px; }
 .feedback-name { font-weight:800; }
 .feedback-date { color:var(--muted); font-size:.75rem; }
-.feedback-copy { margin-top:19px; line-height:1.48; color:#4B485D; }
-.feedback-meta { margin-top:12px; color:var(--muted); font-size:.73rem; }
+.feedback-copy { margin-top:19px; line-height:1.58; color:#4B485D; }
+.feedback-meta { margin-top:13px; color:var(--muted); font-size:.73rem; }
 
 .fun-note {
   margin-top:16px; background:var(--blue-soft); border:1px solid #CADCFF;
@@ -212,9 +197,7 @@ div[data-baseweb="tab-highlight"] { background:var(--violet) !important; height:
   .hero { grid-template-columns:1fr; }
   .hero h1 { font-size:2.35rem; }
   .hero-art { min-height:180px; }
-  .filter-shell { grid-template-columns:1fr; }
   .champ-grid { grid-template-columns:1fr; }
-  .stats { grid-template-columns:1fr 1fr; }
   .board-row { grid-template-columns:42px 1fr 80px; padding:0 12px; gap:10px; }
   .track { display:none; }
   .feedback-grid { grid-template-columns:1fr; }
@@ -222,7 +205,6 @@ div[data-baseweb="tab-highlight"] { background:var(--violet) !important; height:
 </style>
 """, unsafe_allow_html=True)
 
-# Custom SVG illustrations drawn in code — no emoji.
 brand_svg = """
 <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
   <path d="M6 7.5C6 5.57 7.57 4 9.5 4h13C24.43 4 26 5.57 26 7.5v8C26 17.43 24.43 19 22.5 19H16l-5.5 5v-5h-1C7.57 19 6 17.43 6 15.5v-8Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
@@ -277,26 +259,13 @@ st.markdown(f"""
 <div class="hero">
   <div class="hero-copy">
     <h1>Show up prepared. Speak up. Level up.</h1>
-    <p>A colorful snapshot of homework progress, class participation, and the ideas that move our debates forward.</p>
+    <p>Celebrate the progress you are making each class—stronger arguments, sharper rebuttals, thoughtful POIs, and the confidence to make your voice heard.</p>
   </div>
   <div class="hero-art">{hero_svg}</div>
 </div>
 """, unsafe_allow_html=True)
 
-c1, c2 = st.columns([1.15, .85])
-with c1:
-    uploaded = st.file_uploader(
-        "Upload updated class CSV",
-        type=["csv"],
-        help="Optional: upload a CSV here to preview data before replacing sample_students.csv on GitHub."
-    )
-
-if uploaded is not None:
-    df = pd.read_csv(uploaded)
-    source = uploaded.name
-else:
-    df = load_default_data()
-    source = "sample_students.csv"
+df = load_default_data()
 
 missing = [c for c in REQUIRED if c not in df.columns]
 if missing:
@@ -312,14 +281,13 @@ df["Student"] = df["Student"].fillna("").astype(str)
 df["Homework_Status"] = df["Homework_Status"].fillna("").astype(str)
 df["Feedback"] = df["Feedback"].fillna("").astype(str)
 df["Total_Points"] = df[["Homework_Points","POI_Points","Class_Points","Bonus_Points"]].sum(axis=1)
-df["Date_Label"] = df["Date"].dt.strftime("%b %d, %Y")
+df["Date_Label"] = "Week of " + df["Date"].dt.strftime("%b %d, %Y").str.replace(" 0", " ", regex=False)
 
 dates = (
     df[["Date","Date_Label"]].drop_duplicates()
     .sort_values("Date", ascending=False)["Date_Label"].tolist()
 )
-with c2:
-    selected_date = st.selectbox("View class date", ["All dates"] + dates)
+selected_date = st.selectbox("View class date", ["All dates"] + dates)
 
 view = df.copy() if selected_date == "All dates" else df[df["Date_Label"] == selected_date].copy()
 view_title = "All classes" if selected_date == "All dates" else selected_date
@@ -331,62 +299,70 @@ def board_for(column):
         .reset_index(drop=True)
     )
 
+def champion_names(board, column):
+    if board.empty:
+        return [], 0
+    top_score = board[column].max()
+    names = board.loc[board[column] == top_score, "Student"].tolist()
+    return names, top_score
+
 homework_board = board_for("Homework_Points")
 poi_board = board_for("POI_Points")
 overall_board = board_for("Total_Points")
 
-hw = homework_board.iloc[0] if not homework_board.empty else None
-poi = poi_board.iloc[0] if not poi_board.empty else None
+hw_names, hw_score = champion_names(homework_board, "Homework_Points")
+poi_names, poi_score = champion_names(poi_board, "POI_Points")
 
-complete_count = (view["Homework_Status"].str.lower() == "complete").sum()
-completion_rate = complete_count / len(view) * 100 if len(view) else 0
+if hw_names and poi_names:
+    hw_text = " · ".join(escape(str(n)) for n in hw_names)
+    poi_text = " · ".join(escape(str(n)) for n in poi_names)
+    hw_class = "champ-name multi" if len(hw_names) > 1 else "champ-name"
+    poi_class = "champ-name multi" if len(poi_names) > 1 else "champ-name"
+    hw_label = "Homework Champions" if len(hw_names) > 1 else "Homework Champion"
+    poi_label = "POI Champions" if len(poi_names) > 1 else "POI Champion"
 
-if hw is not None and poi is not None:
     st.markdown(f"""
     <div class="champ-grid">
       <div class="champ-card homework">
         <div class="champ-top">
-          <div class="champ-label">Homework Champion</div>
+          <div class="champ-label">{hw_label}</div>
           <div class="champ-period">{escape(view_title)}</div>
         </div>
-        <div class="champ-name">{escape(str(hw["Student"]))}</div>
-        <div class="champ-score">{hw["Homework_Points"]:.0f} homework points</div>
+        <div class="{hw_class}">{hw_text}</div>
+        <div class="champ-score">{hw_score:.0f} homework points each</div>
         <div class="champ-icon">{book_svg}</div>
       </div>
       <div class="champ-card poi">
         <div class="champ-top">
-          <div class="champ-label">POI Champion</div>
+          <div class="champ-label">{poi_label}</div>
           <div class="champ-period">{escape(view_title)}</div>
         </div>
-        <div class="champ-name">{escape(str(poi["Student"]))}</div>
-        <div class="champ-score">{poi["POI_Points"]:.0f} POI points</div>
+        <div class="{poi_class}">{poi_text}</div>
+        <div class="champ-score">{poi_score:.0f} POI points each</div>
         <div class="champ-icon">{poi_svg}</div>
       </div>
     </div>
     """, unsafe_allow_html=True)
-
-st.markdown(f"""
-<div class="stats">
-  <div class="stat"><div class="stat-value">{view["Student"].nunique()}</div><div class="stat-label">Students</div></div>
-  <div class="stat"><div class="stat-value">{completion_rate:.0f}%</div><div class="stat-label">Homework complete</div></div>
-  <div class="stat"><div class="stat-value">{view["POI_Points"].sum():.0f}</div><div class="stat-label">POI points</div></div>
-  <div class="stat"><div class="stat-value">{view["Total_Points"].sum():.0f}</div><div class="stat-label">Total points</div></div>
-</div>
-""", unsafe_allow_html=True)
 
 def leaderboard(board, column):
     if board.empty:
         return "<div>No scores yet.</div>"
     max_value = max(float(board[column].max()), 1)
     rows = []
+    last_score = None
+    rank = 0
     for i, row in board.iterrows():
-        pct = max(3, float(row[column]) / max_value * 100)
+        score = row[column]
+        if last_score is None or score < last_score:
+            rank = i + 1
+        last_score = score
+        pct = max(3, float(score) / max_value * 100)
         rows.append(
-            f'<div class="board-row {"top" if i < 3 else ""}">'
-            f'<div class="rank">{i+1}</div>'
+            f'<div class="board-row {"top" if rank <= 3 else ""}">'
+            f'<div class="rank">{rank}</div>'
             f'<div class="student">{escape(str(row["Student"]))}</div>'
             f'<div class="track"><div class="fill" style="width:{pct:.1f}%"></div></div>'
-            f'<div class="points">{row[column]:.0f} <small>pts</small></div>'
+            f'<div class="points">{score:.0f} <small>pts</small></div>'
             f'</div>'
         )
     return '<div class="board">' + "".join(rows) + "</div>"
@@ -440,7 +416,7 @@ with tab3:
     st.markdown(leaderboard(poi_board, "POI_Points"), unsafe_allow_html=True)
     st.markdown(
         '<div class="fun-note">POI points recognize active debate participation. '
-        'Use the same scoring rule consistently from class to class.</div>',
+        'Keep challenging ideas, asking thoughtful questions, and responding with confidence.</div>',
         unsafe_allow_html=True
     )
 
@@ -464,9 +440,3 @@ with tab4:
         )
     st.markdown('<div class="feedback-grid">' + "".join(cards) + "</div>", unsafe_allow_html=True)
     st.caption("Feedback shown here is visible to anyone who can access the dashboard.")
-
-st.markdown(
-    f'<div style="margin-top:26px;color:#8B8799;font-size:.74rem;">'
-    f'Data source: {escape(source)}</div>',
-    unsafe_allow_html=True
-)
